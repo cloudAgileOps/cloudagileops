@@ -18,7 +18,12 @@ $ python manage.py migrate
 $ python manage.py runserver 
 ```
 
-By default, a development server at http://127.0.0.1:8000/ would be launched.
+By default, a development server at http://127.0.0.1:8000/ would be launched. 
+Open the demo app via http://127.0.0.1:8000/admin. There is a default admin user with usr/pwd - "admin/1234abcd". However, you can create your superuser with:
+```bash
+$ python manage.py createsuperuser
+```
+
 
 ## License
 
