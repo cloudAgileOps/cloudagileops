@@ -13,6 +13,7 @@ MAINTAINER yuwang1974@hotmail.com
 RUN yum -y install epel-release && \
     yum -y install which && \
     yum -y install wget && \
+    yum -y install curl && \
     yum -y install sudo && \
     yum -y install unzip && \
     yum -y install python-pip && \
@@ -20,7 +21,12 @@ RUN yum -y install epel-release && \
     yum -y install openssh-server 
 
 RUN pip install --upgrade pip
-RUN pip install locust
+
+
+RUN curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall 
+RUN chmod 755 msfinstall 
+RUN /msfinstall
+
 
 
 
@@ -32,7 +38,11 @@ RUN ssh-keygen -t ed25519  -P "" -f  /etc/ssh/ssh_host_ed25519_key
 # password is test
 RUN useradd -m test -p "VJdx0yi1Y3LKc"
 
+
+
 COPY --chown=test:test ./toDoListPro/ /work/toDoListPro
+COPY --chown=test:test ./MSFScan.py /work/MSFScan.py
+COPY --chown=test:test ./portscan.rc /work/portscan.rc
 
 COPY startup.sh /
 
