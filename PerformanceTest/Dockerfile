@@ -20,6 +20,7 @@ RUN yum -y install epel-release && \
     yum -y install openssh-server 
 
 RUN pip install --upgrade pip
+RUN pip install django
 RUN pip install locust
 
 
@@ -32,7 +33,7 @@ RUN ssh-keygen -t ed25519  -P "" -f  /etc/ssh/ssh_host_ed25519_key
 # password is test
 RUN useradd -m test -p "VJdx0yi1Y3LKc"
 
-COPY --chown=test:test ./toDoListPro/ /work/toDoListPro
+COPY ./toDoListPro/ /work/toDoListPro
 
 COPY startup.sh /
 
