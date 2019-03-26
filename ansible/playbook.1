@@ -1,0 +1,43 @@
+---
+- name: simple test
+  hosts: all
+  sudo: true
+  remote_user: test
+
+  vars:
+        http_port: 80
+        max_clients: 200
+
+  tasks:
+
+    - name: echo host name
+      shell: hostname
+
+    - name: echo ifconfig
+      shell: /sbin/ifconfig
+
+    - name: install python pip package
+      yum:
+          name=python-pip state=latest
+
+
+    - name: upgrade pip to latest
+      shell:
+          pip install --upgrade pip
+
+
+    - name: install Django dependencies
+      shell:
+         pip install django
+
+    - name: create work directory
+      file:
+         path=/work state=directory
+
+    - name: unarchive Django TODO list appliction 
+      unarchive:
+         src=todolist.tar.gz dest=/work
+
+    - name: start web server of Django TODO list
+      shell: 
+        nohup  python /work/toDoListPro/manage.py runserver &

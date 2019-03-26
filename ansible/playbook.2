@@ -1,0 +1,30 @@
+---
+- name: simple test
+  hosts: all
+  sudo: true
+  remote_user: test
+
+  vars:
+        http_port: 80
+        max_clients: 200
+
+  tasks:
+
+    - name: echo host name
+      shell: hostname
+
+    - name: echo ifconfig
+      shell: /sbin/ifconfig
+
+    - name: docker pull images 
+      docker_container:
+          name: ansibleimage 
+          image: mo-daa74f754.mo.sap.corp:9000/ansiableimage1 
+          pull: yes
+
+    - name: start docker container
+      docker_container:
+          name: ansible
+          image: mo-daa74f754.mo.sap.corp:9000/ansiableimage1
+          command: /usr/sbin/sshd -D
+
