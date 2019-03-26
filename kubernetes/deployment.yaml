@@ -1,0 +1,33 @@
+---
+
+apiVersion: extensions/v1beta1
+
+kind: Deployment
+
+metadata:
+
+  name: todolist
+
+spec:
+
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: todolist
+
+    spec:
+
+      containers:
+
+        - name: todolist
+
+          image: 10.140.0.4/todolist
+
+          ports:
+
+            - containerPort: 8000
+

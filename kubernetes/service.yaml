@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todolist
+  labels:
+    name: todolist
+spec:
+  type: NodePort
+  ports:
+  - port: 8000
+    protocol: TCP
+  selector:
+    app: todolist
+
