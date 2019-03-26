@@ -23,7 +23,11 @@ Open the demo app via http://127.0.0.1:8000/admin. There is a default admin user
 ```bash
 $ python manage.py createsuperuser
 ```
+if you want to start development server on the address that can be accessed outside localhost, you can use following command:
 
+```bash
+$ python manage.py runserver 0.0.0.0:8000
+```
 
 ## License
 
