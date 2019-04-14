@@ -1,7 +1,7 @@
 pipeline {
   agent {
     dockerfile {
-      filename 'chapter5/PerformanceTest/Dockerfile'
+      filename 'chapter4/Dockerfile'
     }
 
   }
