@@ -36,7 +36,4 @@ pipeline {
       }
     }
   }
-  environment {
-    PROD_LANDSCAPE_DIR = '/prod/env/'
-  }
 }
