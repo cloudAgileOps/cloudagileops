@@ -18,6 +18,7 @@ pipeline {
         stage('Functional Test') {
           steps {
             echo 'Executing Functional Test'
+            sh 'python chapter5/DjangoTest/tests/testDjangoTodo_7.py'
           }
         }
         stage('Performance Test') {
