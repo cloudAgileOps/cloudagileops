@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build'
-        sh 'python /work/toDoListPro/manage.py runserver 0.0.0.0:8000'
+        sh 'python /work/toDoListPro/manage.py runserver 0.0.0.0:8000 & sleep 30'
       }
     }
     stage('Test') {
