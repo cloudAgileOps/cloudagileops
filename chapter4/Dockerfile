@@ -1,7 +1,9 @@
-# This file creates a container that runs Chrome, python and SSH services
-# also the image include Django and selenium related dependency libraries,
-# so it is base imge for selenium testing
-#
+# This Dockerfile is used for setup a docker container env for the simple 
+# application ToDoList, which is for clarifying the BlueOcean Pipeline example in 
+# 4.1.3.
+# Please notice that this file reused most content of the Dockerfile in 
+# chapter5/DjangoTest.
+# 
 # Author: Xavier 
 # Date: 04/10/2019
 FROM centos
