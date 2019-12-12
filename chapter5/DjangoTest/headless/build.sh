@@ -11,7 +11,7 @@ fi
 echo "tag: $1"
 
 cp -pr ../../DjangoTest/tests tests
-cp -pr ../../toDoListPro toDoListPro 
+cp -pr ../../../toDoListPro toDoListPro 
 
 docker build . -t $1
 

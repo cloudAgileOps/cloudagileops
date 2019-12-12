@@ -43,6 +43,6 @@ RUN ssh-keygen -t ed25519  -P "" -f  /etc/ssh/ssh_host_ed25519_key
 RUN useradd -m test -p "VJdx0yi1Y3LKc"
 
 
-COPY --chown=test:test ./DjangoTest/tests /work/tests
+COPY --chown=test:test ./tests /work/tests
 COPY --chown=test:test ./toDoListPro/ /work/toDoListPro
 

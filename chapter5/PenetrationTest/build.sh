@@ -10,7 +10,7 @@ fi
 
 echo "tag: $1"
 
-cp -pr ../toDoListPro toDoListPro 
+cp -pr ../../toDoListPro toDoListPro 
 
 docker build . -t $1
 
